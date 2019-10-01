@@ -1,38 +1,25 @@
-<h4>Création de compte</h4>
-
-<div>
-    <div class="row">
-      <div class="col-xs-3">
-        <label>Email</label>
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <h3>Créer un compte</h3>
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="email">Adresse mail *</label>
+        <input type="text"
+               id="email"
+               class="form-control"
+               formControlName="email">
       </div>
-      <div class="col-xs-7">
-        <input type="text">
+      <div class="form-group">
+        <label for="password">Mot de passe *</label>
+        <input type="password"
+               id="password"
+               class="form-control"
+               formControlName="password">
       </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-3">
-        <label>Mot de passe</label>
-      </div>
-      <div class="col-xs-7">
-        <input type="text">
-      </div>
-    </div>
+      <button class="btn btn-primary"
+              type="submit"
+              [disabled]="signupForm.invalid">Créer mon compte</button>
+    </form>
+    <p class="text-danger">{{ errorMessage }}</p>
+  </div>
 </div>
-
-
-<form>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-  </div>
-  <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
